@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Secret Birthday Quest 🎂</title>
+  <!-- Confetti Library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Start Screen -->
+  <div class="card" id="start-screen">
+    <div class="badge">TOP SECRET MISSION 🔐</div>
+    <h1>Hey Bhaiyya! 👋</h1>
+    <div class="riddle-box">
+      <p><b>📜 The Birthday Challenge:</b></p>
+      <p>"Sochiye, agar jitna aapka saal hai utna cake khana pad jaye toh? 😉🎂"</p>
+    </div>
+    <p class="hint-text">Catch the falling cakes using your basket! 👇</p>
+    <button onclick="startGame()">Start The Quest 🚀</button>
+  </div>
+
+  <!-- Game Screen -->
+  <div id="game-container" class="hidden">
+    <div id="score-board">
+      <div class="score-title">CAKES COLLECTED</div>
+      <div class="score-value"><span id="score">0</span> 🎂</div>
+    </div>
+
+    <!-- Floating Feedback Popups -->
+    <div id="popup-layer"></div>
+
+    <div id="play-area">
+      <div id="basket">🎁</div>
+    </div>
+  </div>
+
+  <!-- Growing Side Trees & Party Poppers Container -->
+  <div id="celebration-fx" class="hidden">
+    <div class="side-tree left-tree">
+      <div class="tree-icon">🎄</div>
+      <div class="popper-icon">🎉</div>
+    </div>
+    <div class="side-tree right-tree">
+      <div class="tree-icon">🎄</div>
+      <div class="popper-icon">🎉</div>
+    </div>
+  </div>
+
+  <!-- Final Grand Celebration Card -->
+  <div class="card hidden" id="final-screen">
+    <div class="badge glow">SECRET UNLOCKED! 🏆</div>
+    <h1>🎉 JANAMDIN MUBARAK HO Bhaiyya! 🎂🎈</h1>
+    <p class="final-msg">Many more happy returns of the day, Happiest birthday bade bhaiya!</p>
+    
+    <!-- Photo Gallery with Enhanced Height Containers -->
+    <div class="photo-grid">
+      <div class="photo-card" style="animation-delay: 0.3s;"><img src="photo1.jpeg" alt="Bhaiyya Photo 1"></div>
+      <div class="photo-card" style="animation-delay: 0.5s;"><img src="photo2.jpeg" alt="Bhaiyya Photo 2"></div>
+      <div class="photo-card" style="animation-delay: 0.7s;"><img src="photo3.jpeg" alt="Bhaiyya Photo 3"></div>
+    </div>
+
+    <p style="margin-top: 15px; font-size: 0.95rem; color: #ff6b81; font-weight: 600;">Wishing you a lifetime of health, happiness, and peace. Stay amazing like always! (from batbanauni 😉💖)</p>
+  </div>
+
+  <!-- Background Audio -->
+  <audio id="bg-music" src="song.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

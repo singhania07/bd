@@ -1,0 +1,288 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Fredoka', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at center, #2b1055, #7597de, #0f0c29);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 24px;
+  padding: 25px 20px;
+  max-width: 520px; /* Thoda aur spacious banaya hai */
+  width: 92%;
+  max-height: 92vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  z-index: 20;
+}
+
+/* Side Trees & Poppers Growing Up Animation */
+.side-tree {
+  position: absolute;
+  bottom: 0;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform-origin: bottom center;
+  animation: growUpTree 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.left-tree {
+  left: 2%;
+}
+
+.right-tree {
+  right: 2%;
+}
+
+.tree-icon {
+  font-size: 8.5rem;
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.6));
+}
+
+.popper-icon {
+  font-size: 4.5rem;
+  margin-top: -35px;
+  animation: popperBlastShake 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes growUpTree {
+  0% {
+    transform: scale(0) translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes popperBlastShake {
+  0% { transform: rotate(-12deg) scale(1); }
+  100% { transform: rotate(12deg) scale(1.2); }
+}
+
+/* Final Card Entrance Animation */
+#final-screen:not(.hidden) {
+  animation: popUpCard 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes popUpCard {
+  0% { transform: scale(0.2) translateY(100px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.badge {
+  display: inline-block;
+  background: #ff4757;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 20px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.badge.glow {
+  background: linear-gradient(45deg, #ff4757, #ffa502);
+  box-shadow: 0 0 20px #ff4757;
+}
+
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.final-msg {
+  color: #ffd15c;
+  font-size: 0.95rem;
+  margin-bottom: 12px;
+}
+
+.riddle-box {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  border-radius: 15px;
+  border-left: 4px solid #ffa502;
+  margin: 15px 0;
+  text-align: left;
+}
+
+.riddle-box p {
+  color: #ffd15c;
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+.hint-text {
+  color: #a4b0be;
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+button {
+  background: linear-gradient(45deg, #ff4757, #ff6b81);
+  color: white;
+  border: none;
+  padding: 14px 30px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(255, 71, 87, 0.4);
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 71, 87, 0.6);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Game Screen Controls */
+#game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#score-board {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  padding: 10px 30px;
+  border-radius: 30px;
+  border: 2px solid #ffa502;
+  box-shadow: 0 0 20px rgba(255, 165, 2, 0.4);
+  z-index: 5;
+}
+
+.score-title {
+  font-size: 0.75rem;
+  color: #ffa502;
+  letter-spacing: 1.5px;
+}
+
+.score-value {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+#play-area {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#basket {
+  position: absolute;
+  bottom: 25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 4rem;
+  cursor: grab;
+  user-select: none;
+  z-index: 5;
+  filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+}
+
+.falling-item {
+  position: absolute;
+  font-size: 2.5rem;
+  user-select: none;
+  animation: fall linear forwards;
+  filter: drop-shadow(0 5px 5px rgba(0,0,0,0.3));
+}
+
+@keyframes fall {
+  0% { top: -60px; transform: rotate(0deg); }
+  100% { top: 105vh; transform: rotate(360deg); }
+}
+
+.popup-text {
+  position: absolute;
+  font-weight: 700;
+  font-size: 1.2rem;
+  pointer-events: none;
+  animation: floatUp 0.8s ease-out forwards;
+  z-index: 20;
+}
+
+@keyframes floatUp {
+  0% { opacity: 1; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-50px) scale(1.3); }
+}
+
+/* ENHANCED PHOTO GALLERY WITH INCREASED HEIGHT */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.photo-card {
+  height: 200px; /* Photos ki vertical height badha kar 200px kar di gayi hai */
+  border-radius: 16px;
+  overflow: hidden;
+  border: 3px solid #ffa502;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  transform: scale(0);
+  animation: photoPop 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+@keyframes photoPop {
+  0% { transform: scale(0) rotate(-15deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+.photo-card:hover {
+  transform: scale(1.05) rotate(2deg);
+  transition: transform 0.3s ease;
+}
+
+.photo-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Photos bina cut hue poori fit aayengi */
+  display: block;
+}
